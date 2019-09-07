@@ -45,6 +45,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.4.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>com.hejin</groupId>
             <artifactId>parententity</artifactId>
             <version>0.0.1-SNAPSHOT</version>

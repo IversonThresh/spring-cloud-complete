@@ -16,15 +16,28 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("getEmployeeController")
 public class GetEmployeeController {
-    @Autowired
-    private RestTemplate restTemplate;
 
     @Autowired
-    private LoadBalancerClient loadBalancerClient;
+    private RestTemplate restTemplate;
+    @Autowired
+    private FeginService feginService;
+
+    //@Autowired
+    //private LoadBalancerClient loadBalancerClient;
 
     @GetMapping("/user/{id}")
     public Employee findById(@PathVariable int id) {
         Employee employee = this.restTemplate.getForObject("http://employee-msg-provider/employee/findById?id=" + id, Employee.class);
         return employee;
+    }
+
+    @RequestMapping("testFeign")
+    public String testFeign() {
+        return feginService.hello();
+    }
+
+    @RequestMapping("feignFindById")
+    public String feignFindById(int id) {
+        return feginService.findById(id);
     }
 }

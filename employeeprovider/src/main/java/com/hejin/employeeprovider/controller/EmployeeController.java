@@ -27,4 +27,10 @@ public class EmployeeController {
         System.out.println(employee.toString());
         return employee;
     }
+
+    @RequestMapping("/hello")
+    public String hello(){
+        System.out.println("访问来1了......");
+        return "hello1";
+    }
 }

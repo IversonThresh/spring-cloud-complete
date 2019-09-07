@@ -12,3 +12,5 @@ eureka:
   client:
     service-url:
       defaultZone: http://eurekaserver:8761/eureka/,http://eurekaserverone:8762/eureka/,http://eurekaservertwo:8763/eureka/
+
+

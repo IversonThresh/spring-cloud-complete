@@ -10,4 +10,4 @@ eureka:
     # false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
     fetch-registry: false
     service-url:
-      defaultZone: http://eurekaserver:8761/eureka/,http://eurekaserverone:8762/eureka/
+      defaultZone: http://eurekaserver:8761/,http://eurekaserverone:8762/
