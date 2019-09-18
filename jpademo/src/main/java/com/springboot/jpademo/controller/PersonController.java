@@ -3,6 +3,9 @@ package com.springboot.jpademo.controller;
 import com.springboot.jpademo.dao.PersonRepository;
 import com.springboot.jpademo.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,11 +33,13 @@ public class PersonController {
     }
     /**
      * 查询所有人的数据
+     * 分页查询，page从0开始
      * @return
      */
     @GetMapping(value = "/personlist")
-    public List<Person> personList(){
-        return personRepository.findAll();
+    public Page<Person> personList(){
+        PageRequest pageList = PageRequest.of(0, 2, Sort.Direction.ASC, "id");
+        return personRepository.findAll(pageList);
     }
 
     /**
@@ -44,8 +49,7 @@ public class PersonController {
      */
     @GetMapping(value = "/person/get/{id}")
     public Person personFindOne(@PathVariable("id") Integer id){
-        Person op =  personRepository.findById(id).get();
-        return op;
+        return personRepository.findById(id).get();
     }
 
     /**
