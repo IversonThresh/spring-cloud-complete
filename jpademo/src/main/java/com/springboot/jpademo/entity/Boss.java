@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "b_boss")
 public class Boss {
     @Id
-    @Column(name = "b_id", nullable = true)
+    @Column(name = "b_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "b_name",length = 50)

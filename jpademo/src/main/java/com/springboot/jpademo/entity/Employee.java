@@ -19,7 +19,7 @@ public class Employee {
     @Column(name = "e_money")
     private Double money;
     @JoinColumn(name = "b_boss_b_id")
-    @ManyToOne(targetEntity = Boss.class,cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Boss.class)
     private Boss boss;
 
     public Employee() {
